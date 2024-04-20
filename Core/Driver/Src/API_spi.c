@@ -147,7 +147,7 @@ void MAX31855_ReadData(MAX31855_StateHandle *MAX31855){
     intTemp = ((intTemp >> 4) & 0b11111111111);
     if (MAX31855->intTempSign)
     {
-        intTemp =~(intTemp | 0b1111100000000000); // Experimental code, not tested!
+        intTemp =~(intTemp | 0b1111100000000000);
     }
     MAX31855->intTemp = intTemp;
 }

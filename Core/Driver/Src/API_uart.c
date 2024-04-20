@@ -60,7 +60,7 @@ void switchingState(uint8_t *counter) {
                 LCD_POS_CHAR_H(0);
                 LCD_Print((uint8_t *)"Temperature");
                 LCD_POS_CHAR_L(0);
-                LCD_Print((uint8_t *)"Celsius:");
+                LCD_Print((uint8_t *)"Celsius: ");
                 LCD_Print((uint8_t *)tempStr);
                 HAL_Delay(1000);
             }
@@ -86,7 +86,7 @@ void switchingState(uint8_t *counter) {
                 LCD_POS_CHAR_H(0);
                 LCD_Print((uint8_t *)"Temperature");
                 LCD_POS_CHAR_L(0);
-                LCD_Print((uint8_t *)"Fahrenheit:");
+                LCD_Print((uint8_t *)"Fahrenheit: ");
                 LCD_Print((uint8_t *)tempStr);
                 HAL_Delay(1000);
             }
@@ -125,7 +125,7 @@ void debounceFSM_update(void) {
                 snprintf(counterBuffer, sizeof(counterBuffer), "%d", counter); // Convert counter to string
                 uartSendString((uint8_t*)("Button pressed. Switching status: "));
                 uartSendString((uint8_t*)counterBuffer); // Send counter value
-                uartSendString((uint8_t*)("\n"));
+                uartSendString((uint8_t*)("\n\r"));
                 switchingState(&counter);
             } else {
                 buttonStatus = BUTTON_UP;
